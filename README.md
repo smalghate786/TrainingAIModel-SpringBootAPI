@@ -6,10 +6,17 @@ The model processes input data, compares its predictions to the correct answers 
 ## 🚀 API Endpoints
 
 ### **1️⃣ Train Model**
-**URL:**  
-`POST http://localhost:8282/ai/addData`
- `POST http://localhost:8282/ai/train`
- `GET http://localhost:8282/ai/predict?text=i dont like this`
+curl -X POST http://localhost:8080/ai/addData \
+  -H "Content-Type: application/json" \
+  -d '{"text":"I love this product","label":1}'
+
+curl -X POST http://localhost:8080/ai/addData \
+  -H "Content-Type: application/json" \
+  -d '{"text":"This is terrible","label":0}'
+
+curl -X POST http://localhost:8080/ai/train
+
+curl "http://localhost:8080/ai/predict?text=I hate this"
 
 
 Execute in sequence
